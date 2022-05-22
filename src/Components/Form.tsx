@@ -1,10 +1,6 @@
 import { FC, memo, useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  DONELIST_REDUCES,
-  TODOLIST_INCREASES,
-  TODOLIST_REDUCES,
-} from "../actions";
+import { TODOLIST_INCREASES } from "../actions";
 import Button from "./Button";
 
 type FormProps = {

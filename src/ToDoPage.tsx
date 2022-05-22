@@ -1,10 +1,6 @@
 import { FC, memo, useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  DONELIST_REDUCES,
-  TODOLIST_INCREASES,
-  TODOLIST_REDUCES,
-} from "./actions";
+import { DONELIST_REDUCES, TODOLIST_REDUCES } from "./actions";
 import Button from "./Components/Button";
 import DoneRow from "./Components/DoneRow";
 import Form from "./Components/Form";
