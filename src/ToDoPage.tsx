@@ -7,10 +7,7 @@ import Form from "./Components/Form";
 import Nav from "./Components/Nav";
 import ToDoRow from "./Components/ToDoRow";
 
-type ToDoPageProps = {
-  todo: string | number;
-  todoList: [];
-};
+type ToDoPageProps = {};
 
 const ToDoPage: FC<ToDoPageProps> = (props) => {
   const [showForm, setShowForm] = useState(false);
