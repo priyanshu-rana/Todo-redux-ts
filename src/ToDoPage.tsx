@@ -6,6 +6,7 @@ import DoneRow from "./Components/DoneRow";
 import Form from "./Components/Form";
 import Nav from "./Components/Nav";
 import ToDoRow from "./Components/ToDoRow";
+import { uniqueId } from "lodash";
 
 type ToDoPageProps = {};
 
@@ -14,6 +15,8 @@ const ToDoPage: FC<ToDoPageProps> = (props) => {
 
   const [todoList, setTodoList] = useState([]);
   const [doneList, setDoneList] = useState([]);
+
+  const id = uniqueId();
 
   const dispatch = useDispatch();
 
@@ -38,6 +41,8 @@ const ToDoPage: FC<ToDoPageProps> = (props) => {
       setTodoList([...todoList, todo]);
     } else {
       alert("Same todo is present");
+      decTodoCount();
+      return;
     }
   };
 
