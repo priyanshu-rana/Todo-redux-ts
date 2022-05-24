@@ -34,23 +34,25 @@ const Form: FC<FormProps> = (props) => {
   };
 
   return (
-    <div className="p-5  space-y-3 border border-gray-200 shadow-sm shadow-gray-300  rounded-md ">
-      <h1 className="font-bold text-xl">Create a todo</h1>
-      <input
-        type="text"
-        className="border border-gray-400 rounded-md"
-        value={inputValue}
-        onChange={onInputchange}
-      />
-      <div className="space-x-3">
-        <Button theme="primary" onClick={onSave}>
-          Save
-        </Button>
-        <Button onClick={props.hideForm} theme="red">
-          Cancel
-        </Button>
+    <form>
+      <div className="p-5  space-y-3 border border-gray-200 shadow-sm shadow-gray-300  rounded-md ">
+        <h1 className="font-bold text-xl">Create a todo</h1>
+        <input
+          type="text"
+          className="border border-gray-400 rounded-md"
+          value={inputValue}
+          onChange={onInputchange}
+        />
+        <div className="space-x-3">
+          <Button theme="primary" onClick={onSave}>
+            Save
+          </Button>
+          <Button onClick={props.hideForm} theme="red">
+            Cancel
+          </Button>
+        </div>
       </div>
-    </div>
+    </form>
   );
 };
 

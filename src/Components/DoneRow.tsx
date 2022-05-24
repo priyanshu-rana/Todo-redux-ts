@@ -37,7 +37,13 @@ const DoneRow: FC<DoneRowProps> = (props) => {
         onChange={onCheckboxChange}
         className="w-4 h-4"
       />
-      <span className={props.done && "line-through"}>{props.children}</span>
+      <span
+        style={{ cursor: "cell" }}
+        onClick={onCheckboxChange}
+        className={props.done && "line-through"}
+      >
+        {props.children}
+      </span>
       <button onClick={onDel} className="text-red-500 font-bold">
         X
       </button>

@@ -41,7 +41,9 @@ const ToDoRow: FC<ToDoRowProps> = (props) => {
         onChange={onCheckboxChange}
         className="w-4 h-4"
       />
-      <span>{props.children}</span>
+      <span style={{ cursor: "cell" }} onClick={onCheckboxChange}>
+        {props.children}
+      </span>
       <button onClick={onDel} className="text-red-500 font-bold">
         X
       </button>
