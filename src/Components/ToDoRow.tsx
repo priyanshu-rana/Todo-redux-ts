@@ -5,12 +5,13 @@ import {
   TODOLIST_INCREASES,
   DONELIST_INCREASES,
 } from "../actions";
+import { todo } from "../models/todo";
 
 type ToDoRowProps = {
-  children: string;
   done: boolean;
-  onStatusChange: any;
-  onDelete: any;
+  onStatusChange: (data: todo) => void;
+  onDelete: (data: todo, done: boolean) => void;
+  todo: todo;
 };
 
 const ToDoRow: FC<ToDoRowProps> = (props) => {
@@ -25,24 +26,23 @@ const ToDoRow: FC<ToDoRowProps> = (props) => {
   };
 
   const onCheckboxChange = () => {
-    props.onStatusChange(props.children);
-    incDoneCount();
-    decTodoCount();
+    props.onStatusChange(props.todo);
   };
 
   const onDel = () => {
-    props.onDelete(props.children, props.done);
+    props.onDelete(props.todo, props.done);
+    decTodoCount();
   };
   return (
     <div className="flex items-center space-x-3">
       <input
         type="checkbox"
-        checked={props.done}
+        checked={props.todo.done}
         onChange={onCheckboxChange}
         className="w-4 h-4"
       />
       <span style={{ cursor: "cell" }} onClick={onCheckboxChange}>
-        {props.children}
+        {props.todo.title}
       </span>
       <button onClick={onDel} className="text-red-500 font-bold">
         X

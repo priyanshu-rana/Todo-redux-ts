@@ -39,7 +39,8 @@ const Form: FC<FormProps> = (props) => {
         <h1 className="font-bold text-xl">Create a todo</h1>
         <input
           type="text"
-          className="border border-gray-400 rounded-md"
+          placeholder="Write todo here !!"
+          className="border border-gray-400 rounded-md p-1"
           value={inputValue}
           onChange={onInputchange}
         />

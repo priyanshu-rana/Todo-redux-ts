@@ -1,12 +1,13 @@
 import { FC, memo } from "react";
 import { useDispatch } from "react-redux";
 import { TODOLIST_INCREASES, DONELIST_REDUCES } from "../actions";
+import { todo } from "../models/todo";
 
 type DoneRowProps = {
-  children: string;
-  done: any;
-  onStatusChange: any;
-  onDelete: any;
+  done: boolean;
+  onStatusChange: (data: todo) => void;
+  onDelete: (data: todo, done: boolean) => void;
+  todo: todo;
 };
 
 const DoneRow: FC<DoneRowProps> = (props) => {
@@ -20,13 +21,12 @@ const DoneRow: FC<DoneRowProps> = (props) => {
     dispatch({ type: TODOLIST_INCREASES });
   };
   const onCheckboxChange = () => {
-    props.onStatusChange(props.children);
-    incTodoCount();
-    decDoneCount();
+    props.onStatusChange(props.todo);
   };
 
   const onDel = () => {
-    props.onDelete(props.children, props.done);
+    props.onDelete(props.todo, props.done);
+    decDoneCount();
   };
 
   return (
@@ -35,14 +35,14 @@ const DoneRow: FC<DoneRowProps> = (props) => {
         type="checkbox"
         checked={props.done}
         onChange={onCheckboxChange}
-        className="w-4 h-4"
+        className="w-4 h-4 "
       />
       <span
         style={{ cursor: "cell" }}
         onClick={onCheckboxChange}
-        className={props.done && "line-through"}
+        className="line-through"
       >
-        {props.children}
+        {props.todo.title}
       </span>
       <button onClick={onDel} className="text-red-500 font-bold">
         X
